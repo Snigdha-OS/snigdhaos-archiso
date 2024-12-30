@@ -1,7 +1,9 @@
 
 # Snigdha OS Default ISO
 
-![Snigdha OS Logo](https://github.com/Snigdha-OS/snigdhaos-assets/blob/master/2024/png/Snigdha%20OS%20Favicon.png)
+<div align="center">
+    <img src="https://github.com/Snigdha-OS/snigdhaos-assets/blob/master/2024/png/Snigdha%20OS%20Favicon.png" alt="Snigdha OS Logo">
+</div>
 
 Welcome to the official repository for the **Snigdha OS Default ISO**! This repository hosts the configurations and scripts used to build the default ISO image of Snigdha OS, a lightweight and highly customizable Linux distribution built on Arch Linux with the Linux Zen Kernel.
 
