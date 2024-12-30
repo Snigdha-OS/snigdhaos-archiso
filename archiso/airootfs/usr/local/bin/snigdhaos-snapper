@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# -----------------------------------------------------------------------------
+# Script Name:    snigdhaos-snapper.sh
+# Author:         Rio
+# Created Date:   30/12/2024
+# Version:        1.0
+# Description:    Deletes Snapper snapshots in a specified range, removes custom
+#                 scripts, and logs all actions. Includes dynamic snapshot 
+#                 detection, error handling, and logging.
+# License:        MIT
+# -----------------------------------------------------------------------------
+
+# Define variables
+LOG_FILE="/var/log/snigdhaos-snapper.log"
+SNAPPER_BIN="/usr/bin/snapper"
+CUSTOM_SCRIPT="/usr/local/bin/snigdhaos-snapper"
+START_INDEX=${START_INDEX:-1}
+END_INDEX=${END_INDEX:-20}
+
+# Ensure the log file exists
+touch "$LOG_FILE"
+
+# Log a message
+log_message() {
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+log_message "Script execution started."
+
+# Check if snapper is installed
+if [ -f "$SNAPPER_BIN" ]; then
+    log_message "Snapper binary found at $SNAPPER_BIN."
+    EXISTING_SNAPSHOTS=$($SNAPPER_BIN --no-dbus list | awk 'NR>1 {print $1}' | grep -E '^[0-9]+$')
+
+    # Iterate over snapshots or specified range
+    for i in $EXISTING_SNAPSHOTS; do
+        if [[ $i -ge $START_INDEX && $i -le $END_INDEX ]]; then
+            log_message "Attempting to delete snapshot ID: $i"
+            if $SNAPPER_BIN --no-dbus delete "$i" 2>>"$LOG_FILE"; then
+                log_message "Successfully deleted snapshot ID: $i"
+            else
+                log_message "Error deleting snapshot ID: $i"
+            fi
+        fi
+    done
+else
+    log_message "Snapper is not installed. Exiting."
+    exit 1
+fi
+
+# Remove the custom script
+if [ -f "$CUSTOM_SCRIPT" ]; then
+    rm -f "$CUSTOM_SCRIPT"
+    log_message "Removed custom script at $CUSTOM_SCRIPT."
+else
+    log_message "Custom script not found at $CUSTOM_SCRIPT."
+fi
+
+log_message "Script execution completed."
