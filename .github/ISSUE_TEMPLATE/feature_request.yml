@@ -1,0 +1,33 @@
+name: Feature Request 💡
+description: Request a new feature or improvement for Snigdha OS ArchISO.
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature for **Snigdha OS ArchISO**! Please provide details about the feature you would like to see added.
+
+  - type: input
+    attributes:
+      label: Describe the Feature
+      description: Please describe the feature in detail. What would it do? How would it benefit users?
+      placeholder: A clear and concise description of the feature.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Why Is This Feature Needed?
+      description: Please explain why this feature is important and any use cases it will address.
+      placeholder: Explain the importance and value of this feature.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Potential Solution
+      description: (Optional) If you have an idea of how this feature might be implemented, feel free to share.
+      placeholder: A suggested solution for the feature.
+    validations:
+      required: false

@@ -1,6 +1,9 @@
 name: Bug Report 🐛
 description: Report an issue with Snigdha OS ArchISO.
 labels: ["bug"]
+assignees:
+  - eshanized
+  - d3v1l0n
 
 body:
   - type: markdown

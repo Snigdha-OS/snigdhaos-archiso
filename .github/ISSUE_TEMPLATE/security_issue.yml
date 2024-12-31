@@ -1,0 +1,52 @@
+name: Security Issue 🚨
+description: Report a security vulnerability for Snigdha OS ArchISO.
+labels: ["security"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **IMPORTANT**: If you are reporting a security vulnerability, **do not disclose it publicly**. Please follow the steps outlined in our [Security Policy](#security-policy) to report the issue securely.
+
+  - type: input
+    attributes:
+      label: Summary of the Vulnerability
+      description: Provide a brief summary of the security vulnerability.
+      placeholder: A brief description of the vulnerability.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: Provide the steps to reproduce the vulnerability, if applicable.
+      placeholder: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Affected Versions
+      description: Specify the versions of Snigdha OS ArchISO that are affected by this vulnerability.
+      placeholder: e.g., Snigdha OS ArchISO 2024.12.01
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Impact
+      description: What impact does the vulnerability have? (e.g., privilege escalation, data leakage, etc.)
+      placeholder: A description of the impact of the vulnerability.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Mitigation
+      description: If applicable, include any temporary mitigations or workarounds for the issue.
+      placeholder: A description of any mitigations or fixes.
+    validations:
+      required: false
