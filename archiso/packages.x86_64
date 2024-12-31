@@ -1,128 +1,33 @@
-alsa-utils
-amd-ucode
-arch-install-scripts
-archinstall
-b43-fwcutter
-base
-bcachefs-tools
-bind
-bolt
-brltty
-broadcom-wl
-btrfs-progs
-clonezilla
-cloud-init
-cryptsetup
-darkhttpd
-ddrescue
-dhclient
-dhcpcd
-diffutils
-dmidecode
-dmraid
-dnsmasq
-dosfstools
-e2fsprogs
-edk2-shell
-efibootmgr
-espeakup
-ethtool
-exfatprogs
-f2fs-tools
-fatresize
-foot-terminfo
-fsarchiver
-gpart
-gpm
-gptfdisk
-grml-zsh-config
-grub
-hdparm
-hyperv
-intel-ucode
-irssi
-iw
-iwd
-jfsutils
-kitty-terminfo
-ldns
-less
-lftp
-libfido2
-libusb-compat
-linux
-linux-atm
-linux-firmware
-linux-firmware-marvell
-livecd-sounds
-lsscsi
-lvm2
-lynx
-man-db
-man-pages
-mc
-mdadm
-memtest86+
-memtest86+-efi
-mkinitcpio
-mkinitcpio-archiso
-mkinitcpio-nfs-utils
-modemmanager
-mtools
-nano
-nbd
-ndisc6
-nfs-utils
-nilfs-utils
-nmap
-ntfs-3g
-nvme-cli
-open-iscsi
-open-vm-tools
-openconnect
-openpgp-card-tools
-openssh
-openvpn
-partclone
-parted
-partimage
-pcsclite
-ppp
-pptpclient
-pv
-qemu-guest-agent
-refind
-reflector
-rp-pppoe
-rsync
-rxvt-unicode-terminfo
-screen
-sdparm
-sequoia-sq
-sg3_utils
-smartmontools
-sof-firmware
-squashfs-tools
-sudo
-syslinux
-systemd-resolvconf
-tcpdump
-terminus-font
-testdisk
-tmux
-tpm2-tools
-tpm2-tss
-udftools
-usb_modeswitch
-usbmuxd
-usbutils
-vim
-virtualbox-guest-utils-nox
-vpnc
-wireless-regdb
-wireless_tools
-wpa_supplicant
-wvdial
-xfsprogs
-xl2tpd
-zsh
+alsa-utils           # Basic sound utilities  
+amd-ucode            # AMD CPU microcode updates  
+arch-install-scripts # Utilities for manual installation  
+base                 # Essential packages for a minimal Arch Linux setup (includes bash)  
+bash                 # Ensure Bash is available as the default shell  
+btrfs-progs          # Btrfs filesystem utilities  
+cryptsetup           # Disk encryption support  
+dhcpcd               # DHCP client for network configuration  
+dosfstools           # FAT filesystem utilities  
+e2fsprogs            # Ext4 filesystem utilities  
+efibootmgr           # EFI bootloader management  
+grub                 # Bootloader for BIOS/UEFI systems  
+intel-ucode          # Intel CPU microcode updates  
+iw                   # Wireless configuration tool  
+iwd                  # Lightweight wireless daemon  
+linux-firmware       # Essential firmware for most hardware  
+linux-lts            # Stable LTS kernel for long-term support  
+lvm2                 # Logical Volume Manager support  
+man-db               # Access to manual pages  
+man-pages            # Linux manual pages  
+mkinitcpio           # Tool to generate initramfs  
+mkinitcpio-archiso   # Required for creating ArchISO images  
+nano                 # User-friendly text editor  
+ntfs-3g              # NTFS filesystem support  
+parted               # Partitioning tool  
+reflector            # Fast mirror list generation  
+squashfs-tools       # Live CD compression utilities  
+sudo                 # Privileged command execution  
+systemd-resolvconf   # Network DNS resolution setup  
+usbutils             # USB device utilities  
+vim                  # Advanced text editor  
+wpa_supplicant       # Wireless authentication utilities  
+xfsprogs             # XFS filesystem utilities  
