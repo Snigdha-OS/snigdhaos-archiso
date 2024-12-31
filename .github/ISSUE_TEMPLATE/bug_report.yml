@@ -1,0 +1,65 @@
+name: Bug Report 🐛
+description: Report an issue with Snigdha OS ArchISO.
+labels: ["bug"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report an issue with **Snigdha OS ArchISO**! Please fill in the following information to help us better understand and address the bug.
+
+  - type: input
+    attributes:
+      label: Description
+      description: Describe the bug in detail. What were you trying to do? What did you expect to happen? What actually happened?
+      placeholder: A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a list of steps to reproduce the issue. If possible, include the exact commands or actions performed.
+      placeholder: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen when performing the steps above?
+      placeholder: A description of what should have happened.
+    validations:
+      required: true  
+
+  - type: input
+    attributes:
+      label: Actual Behavior
+      description: What actually happened instead?
+      placeholder: A description of what went wrong.
+    validations:
+      required: true  
+
+  - type: input
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the problem.
+      placeholder: Paste screenshots or links to the issue.
+    validations:
+      required: false  
+
+  - type: input
+    attributes:
+      label: Environment
+      description: Provide details about your environment.
+      placeholder: |
+        - **OS Version**: (e.g., Snigdha OS ArchISO 2024.12.01)
+        - **Architecture**: (e.g., x86_64, ARM)
+        - **Hardware**: (e.g., CPU model, amount of RAM, disk configuration)
+        - **Boot Mode**: (e.g., UEFI, BIOS)
+        - **Kernel Version**: (e.g., 5.10 LTS)
+    validations:
+      required: true  
