@@ -1,0 +1,41 @@
+#!/bin/sh
+# Automatically update the timezone whenever NetworkManager detects a connectivity change.
+# Uses `connectivity-change` instead of `up` to avoid conflicts with VPN connections.
+# Ensures the system has the correct timezone to mitigate potential signature verification errors.
+
+# Dependencies: `curl`, `timedatectl`
+# Reference: https://wiki.archlinux.org/title/Pacman/Package_signing#Invalid_signature_errors
+
+# Function to log errors
+log_error() {
+    echo "[ERROR] $1" >&2
+}
+
+# Check if required commands are available
+command -v curl >/dev/null 2>&1 || {
+    log_error "curl is not installed. Please install it and try again."
+    exit 1
+}
+
+command -v timedatectl >/dev/null 2>&1 || {
+    log_error "timedatectl is not available. Ensure systemd is being used."
+    exit 1
+}
+
+# Main logic
+case "$2" in
+    connectivity-change)
+        # Fetch the timezone using ipapi.co
+        TIMEZONE=$(curl --fail --silent --retry 3 https://ipapi.co/timezone)
+        if [ -n "$TIMEZONE" ]; then
+            # Set the timezone if fetched successfully
+            timedatectl set-timezone "$TIMEZONE" || log_error "Failed to set timezone to $TIMEZONE."
+        else
+            log_error "Failed to fetch timezone. Ensure your internet connection is active."
+        fi
+    ;;
+    *)
+        # No action needed for other events
+        exit 0
+    ;;
+esac
