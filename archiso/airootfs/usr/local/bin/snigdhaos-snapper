@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Check if the 'snapper' command is available
+if command -v snapper &>/dev/null; then
+    echo "Snapper found. Proceeding with cleanup."
+
+    # Loop through snapshot IDs to delete
+    snapper list | awk 'NR>3 {print $1}' | while read -r id; do
+        echo "Attempting to delete snapshot ID: $id"
+        if snapper --no-dbus delete "$id"; then
+            echo "Successfully deleted snapshot ID: $id"
+        else
+            echo "Failed to delete snapshot ID: $id" >&2
+        fi
+    done
+else
+    echo "Snapper is not installed or not in the PATH. Exiting."
+    exit 1
+fi
+
+# Remove the 'snigdhaos-snapper' script if it exists
+if [ -f /usr/local/bin/snigdhaos-snapper ]; then
+    echo "Removing /usr/local/bin/snigdhaos-snapper..."
+    rm -f /usr/local/bin/snigdhaos-snapper && echo "Removed successfully." || echo "Failed to remove the file." >&2
+else
+    echo "/usr/local/bin/snigdhaos-snapper not found. Nothing to remove."
+fi
