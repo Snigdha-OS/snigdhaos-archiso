@@ -1,8 +1,7 @@
 alsa-utils           # Basic sound utilities  
 amd-ucode            # AMD CPU microcode updates  
 arch-install-scripts # Utilities for manual installation  
-base                 # Essential packages for a minimal Arch Linux setup (includes bash)  
-bash                 # Ensure Bash is available as the default shell  
+base                 # Essential packages for a minimal Arch Linux setup (includes bash)
 btrfs-progs          # Btrfs filesystem utilities  
 cryptsetup           # Disk encryption support  
 dhcpcd               # DHCP client for network configuration  
