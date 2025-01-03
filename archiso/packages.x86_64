@@ -31,3 +31,8 @@ usbutils             # USB device utilities
 vim                  # Advanced text editor  
 wpa_supplicant       # Wireless authentication utilities  
 xfsprogs             # XFS filesystem utilities  
+
+#########################################################
+
+snigdhaos-mirrorlist
+snigdhaos-keyring
