@@ -18,6 +18,7 @@ lvm2                 # Logical Volume Manager support
 man-db               # Access to manual pages  
 man-pages            # Linux manual pages  
 mkinitcpio           # Tool to generate initramfs  
+mkinitcpio-firmware  # The annoying missing firmware message will be removed
 mkinitcpio-archiso   # Required for creating ArchISO images  
 nano                 # User-friendly text editor  
 ntfs-3g              # NTFS filesystem support  
