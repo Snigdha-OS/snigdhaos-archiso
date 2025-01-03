@@ -3,7 +3,7 @@
 
 iso_name="snigdhaos"
 iso_label="SNIGDHA_OS_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
-iso_publisher="Snigdha OS <https://snigdha-os.github.io>"
+iso_publisher="Snigdha OS <https://snigdhaos.org>"
 iso_application="Snigdha OS Live/Rescue DVD"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
 install_dir="snigdhaos"
