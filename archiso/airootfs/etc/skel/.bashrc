@@ -55,28 +55,35 @@ bind "set completion-ignore-case on"
 
 # Function for extracting different types of archives
 ex () {
-    if [ -f "$1" ]; then
-        case "$1" in
-            *.tar.bz2)   tar xjf "$1" ;;
-            *.tar.gz)    tar xzf "$1" ;;
-            *.bz2)       bunzip2 "$1" ;;
-            *.rar)       unrar x "$1" ;;
-            *.gz)        gunzip "$1"  ;;
-            *.tar)       tar xf "$1"  ;;
-            *.tbz2)      tar xjf "$1" ;;
-            *.tgz)       tar xzf "$1" ;;
-            *.zip)       unzip "$1"   ;;
-            *.Z)         uncompress "$1" ;;
-            *.7z)        7z x "$1"    ;;
-            *.deb)       ar x "$1"    ;;
-            *.tar.xz)    tar xf "$1"  ;;
-            *.tar.zst)   tar xf "$1"  ;;
-            *)           echo "'$1' cannot be extracted via ex()" ;;
+    if [ "$#" -lt 1 ]; then
+        echo "Usage: ex <file> [destination]"
+        return 1
+    fi
+    local file="$1"
+    local dest="${2:-.}"
+    if [ -f "$file" ]; then
+        case "$file" in
+            *.tar.bz2)   tar xjf "$file" -C "$dest" ;;
+            *.tar.gz)    tar xzf "$file" -C "$dest" ;;
+            *.bz2)       bunzip2 "$file" ;;
+            *.rar)       unrar x "$file" "$dest" ;;
+            *.gz)        gunzip "$file" ;;
+            *.tar)       tar xf "$file" -C "$dest" ;;
+            *.tbz2)      tar xjf "$file" -C "$dest" ;;
+            *.tgz)       tar xzf "$file" -C "$dest" ;;
+            *.zip)       unzip "$file" -d "$dest" ;;
+            *.Z)         uncompress "$file" ;;
+            *.7z)        7z x "$file" -o"$dest" ;;
+            *.deb)       ar x "$file" -C "$dest" ;;
+            *.tar.xz)    tar xf "$file" -C "$dest" ;;
+            *.tar.zst)   tar xf "$file" -C "$dest" ;;
+            *)           echo "'$file' cannot be extracted via ex()" ;;
         esac
     else
-        echo "'$1' is not a valid file"
+        echo "'$file' is not a valid file"
     fi
 }
+
 
 # Custom PS1 prompt with IP address and conditional formatting based on terminal type
 get_ip_address() {
