@@ -102,9 +102,9 @@ else
 fi
 
 # Display system information via neofetch if the flag is not set
-#if [[ $1 != "no-repeat-flag" && -z $NO_REPETITION ]]; then
-#    neofetch
-#fi
+if [ -n "$PS1" ] && [ "$TERM" != "dumb" ]; then
+    command -v neofetch &> /dev/null && neofetch
+fi
 
 # Additional useful aliases
 alias cls="clear"                     # Clear the terminal screen
