@@ -37,3 +37,5 @@ xfsprogs             # XFS filesystem utilities
 snigdhaos-mirrorlist
 snigdhaos-keyring
 snigdhaos-asiant-fonts
+snigdhaos-system-installation
+snigdhaos-system-config
