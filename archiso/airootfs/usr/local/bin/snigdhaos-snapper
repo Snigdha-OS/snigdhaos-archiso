@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# Check if the 'snapper' command is available
-if command -v snapper &>/dev/null; then
-    echo "Snapper found. Proceeding with cleanup."
+# Function to delete Snapper snapshots
+delete_snapshots() {
+    echo "Checking for Snapper snapshots..."
+    local snapshot_ids
+    snapshot_ids=$(snapper list | awk 'NR>3 {print $1}')
 
-    # Loop through snapshot IDs to delete
-    snapper list | awk 'NR>3 {print $1}' | while read -r id; do
+    if [ -z "$snapshot_ids" ]; then
+        echo "No snapshots found to delete."
+        return
+    fi
+
+    for id in $snapshot_ids; do
         echo "Attempting to delete snapshot ID: $id"
         if snapper --no-dbus delete "$id"; then
             echo "Successfully deleted snapshot ID: $id"
@@ -13,15 +19,31 @@ if command -v snapper &>/dev/null; then
             echo "Failed to delete snapshot ID: $id" >&2
         fi
     done
+}
+
+# Function to remove the snigdhaos-snapper script
+remove_snigdhaos_snapper() {
+    local script_path="/usr/local/bin/snigdhaos-snapper"
+    
+    if [ -f "$script_path" ]; then
+        echo "Removing $script_path..."
+        if rm -f "$script_path"; then
+            echo "Removed $script_path successfully."
+        else
+            echo "Failed to remove $script_path." >&2
+        fi
+    else
+        echo "$script_path not found. Nothing to remove."
+    fi
+}
+
+# Main script execution
+if command -v snapper &>/dev/null; then
+    echo "Snapper found. Proceeding with cleanup."
+    delete_snapshots
 else
     echo "Snapper is not installed or not in the PATH. Exiting."
     exit 1
 fi
 
-# Remove the 'snigdhaos-snapper' script if it exists
-if [ -f /usr/local/bin/snigdhaos-snapper ]; then
-    echo "Removing /usr/local/bin/snigdhaos-snapper..."
-    rm -f /usr/local/bin/snigdhaos-snapper && echo "Removed successfully." || echo "Failed to remove the file." >&2
-else
-    echo "/usr/local/bin/snigdhaos-snapper not found. Nothing to remove."
-fi
+remove_snigdhaos_snapper
