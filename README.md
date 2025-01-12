@@ -4,8 +4,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License: MIT"></a>
   <a href="https://github.com/Snigdha-OS/snigdhaos-archiso"><img src="https://img.shields.io/github/stars/Snigdha-OS/snigdhaos-archiso?style=for-the-badge" alt="Stars"></a>
   <a href="https://github.com/Snigdha-OS/snigdhaos-archiso/issues"><img src="https://img.shields.io/github/issues/Snigdha-OS/snigdhaos-archiso?style=for-the-badge" alt="Issues"></a>
-  <a href="https://github.com/Snigdha-OS/snigdhaos-archiso/actions"><img src="https://img.shields.io/github/workflow/status/Snigdha-OS/snigdhaos-archiso/CI?style=for-the-badge" alt="CI Status"></a>
-  <a href="https://github.com/Snigdha-OS/snigdhaos-archiso/actions?query=workflow%3A%22Build%22"><img src="https://img.shields.io/github/workflow/status/Snigdha-OS/snigdhaos-archiso/Build?style=for-the-badge" alt="Build Status"></a>
+   <a href="https://github.com/Snigdha-OS/snigdhaos-archiso/actions"><img src="https://img.shields.io/github/actions/workflow/status/Snigdha-OS/snigdhaos-archiso/cz.yml?branch=master&style=for-the-badge" alt="Build Status"></a>
 </p>
 
 **Snigdha OS ArchISO** is the official ArchISO configuration for building Snigdha OS, a highly customizable Linux distribution based on Arch Linux and featuring the **LTS Kernel** for unmatched stability. 🚀  
